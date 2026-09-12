@@ -1,0 +1,4 @@
+(fp_lib_table
+	(version 7)
+	(lib (name "xblast-lite") (type "KiCad") (uri "${KIPRJMOD}/xblast-lite.pretty") (options "") (descr ""))
+)
