@@ -18660,7 +18660,7 @@
 				)
 			)
 		)
-		(property "Value" "TC2050"
+		(property "Value" "JTAG"
 			(at 33.02 54.61 0)
 			(show_name no)
 			(do_not_autoplace no)
