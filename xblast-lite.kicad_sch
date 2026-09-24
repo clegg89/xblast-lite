@@ -6820,6 +6820,12 @@
 		(uuid "64ce6247-2b11-43f2-ae02-8ef6a569703d")
 	)
 	(junction
+		(at 222.25 156.21)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "79579e28-330b-4730-96b7-32b30551617a")
+	)
+	(junction
 		(at 87.63 171.45)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -7110,6 +7116,16 @@
 			(type default)
 		)
 		(uuid "06f082fc-7c08-44e6-af95-aaf665644aff")
+	)
+	(wire
+		(pts
+			(xy 222.25 156.21) (xy 222.25 158.75)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "0705af02-be95-40fa-8864-0bdfaa3a118a")
 	)
 	(wire
 		(pts
@@ -10101,6 +10117,16 @@
 		)
 		(uuid "675f7a44-ac9a-4cad-a38e-444081ed0506")
 	)
+	(label "LCD_BL_V"
+		(at 257.81 153.67 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "68db128b-efda-4a53-b443-f9c92060df33")
+	)
 	(label "XLCLK"
 		(at 181.61 105.41 180)
 		(effects
@@ -10340,6 +10366,16 @@
 			(justify left bottom)
 		)
 		(uuid "96cc4513-4bca-4920-a3bd-24c3af31d37d")
+	)
+	(label "LCD_BL_I"
+		(at 222.25 158.75 270)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9742ec67-1f77-40fd-99ad-c52c493479e4")
 	)
 	(label "XLAD2"
 		(at 148.59 135.89 0)
