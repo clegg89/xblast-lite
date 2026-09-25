@@ -1,0 +1,4 @@
+(sym_lib_table
+	(version 7)
+	(lib (name "xblast-lite") (type "KiCad") (uri "${KIPRJMOD}/xblast-lite.kicad_sym") (options "") (descr ""))
+)
