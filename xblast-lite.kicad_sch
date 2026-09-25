@@ -4137,7 +4137,7 @@
 				)
 			)
 			(property "Description" "Unpolarized capacitor, small symbol"
-				(at 0 0 0)
+				(at 0 -10.16 0)
 				(show_name no)
 				(do_not_autoplace no)
 				(hide yes)
@@ -4187,7 +4187,7 @@
 						(xy -1.524 -0.508) (xy 1.524 -0.508)
 					)
 					(stroke
-						(width 0.3302)
+						(width 0.3048)
 						(type default)
 					)
 					(fill
@@ -11357,7 +11357,7 @@
 				)
 			)
 		)
-		(property "Description" "Bypass Capacitor"
+		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 224.79 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -13113,7 +13113,7 @@
 				)
 			)
 		)
-		(property "Description" "Bypass Capacitor"
+		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 116.84 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -14196,7 +14196,7 @@
 				)
 			)
 		)
-		(property "Description" "Bypass Capacitor"
+		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 128.27 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -14631,7 +14631,7 @@
 				)
 			)
 		)
-		(property "Description" "Bypass Capacitor"
+		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 236.22 30.48 0)
 			(hide yes)
 			(show_name no)
@@ -14801,7 +14801,7 @@
 				)
 			)
 		)
-		(property "Description" "Bypass Capacitor"
+		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 105.41 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -16142,7 +16142,7 @@
 				)
 			)
 		)
-		(property "Description" "4.7uF Bulk Capacitor"
+		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 116.84 142.24 0)
 			(hide yes)
 			(show_name no)
@@ -18446,7 +18446,7 @@
 				)
 			)
 		)
-		(property "Description" "4.7uF Bulk Capacitor"
+		(property "Description" "Unpolarized capacitor, small symbol"
 			(at 241.3 134.62 0)
 			(hide yes)
 			(show_name no)
