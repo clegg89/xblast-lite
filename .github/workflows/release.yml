@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - "v[0-9]+"
+
+jobs:
+  build:
+    uses: ./.github/workflows/build.yml
+    secrets: inherit
+
+  release:
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+    - name: Download Artifacts
+      uses: actions/download-artifact@v8
+      with:
+        name: outputs
+        path: outputs/
+    - name: Create Release
+      run: |
+        tag="$GITHUB_REF_NAME"
+        uploads="outputs/xblast-lite.schematic.pdf outputs/xblast-lite.bom.csv outputs/xblast-lite.gerbers.zip"
+        if gh release view "$tag" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
+          gh release upload "$tag" -R "$GITHUB_REPOSITORY" $uploads
+        else
+          title=$(echo "Xblast Lite $tag")
+          gh release create "$tag" -R "$GITHUB_REPOSITORY" \
+            --draft \
+            --title "$title" \
+            $uploads
+        fi
