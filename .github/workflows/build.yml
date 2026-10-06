@@ -29,9 +29,10 @@ jobs:
       image: ghcr.io/kicad/kicad:${{ needs.setup.outputs.kicad_version }}
       options: --user root
     steps:
-      - name: Install Zip
+      - name: Install Packages
         run: |
-          apt-get update && apt-get install -y zip
+          apt-get update && apt-get install -y zip python3-pip xvfb
+          pip install --break-system-packages InteractiveHtmlBom==2.12.0
       - name: Checkout Repository
         uses: actions/checkout@v7
       - name: Seed KiCad Global Library Tables
@@ -54,6 +55,14 @@ jobs:
         run: |
           mkdir -p outputs/
           kicad-cli sch export bom --output outputs/xblast-lite.bom.csv xblast-lite.kicad_sch
+      - name: Create Interactive BOM
+        run: |
+          mkdir -p outputs/
+          xvfb-run -a generate_interactive_bom \
+            --no-browser \
+            --dest-dir "$PWD/outputs" \
+            --name-format "%f.ibom" \
+            xblast-lite.kicad_pcb
       - name: Generate Gerbers
         run: |
           mkdir -p tmp
@@ -75,3 +84,31 @@ jobs:
           name: logs
           path: logs/
           retention-days: 1
+
+  deploy:
+    name: Deploy iBOM to Pages
+    needs: build
+    if: ${{ github.ref == 'refs/heads/master' || github.ref_type == 'tag' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    concurrency:
+      group: gh-pages-deploy
+      cancel-in-progress: false
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v8
+        with:
+          name: outputs
+          path: outputs/
+      - name: Prepare Site
+        run: |
+          mkdir site
+          cp outputs/xblast-lite.ibom.html site/index.html
+      - name: Deploy
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: site
+          destination_dir: ${{ github.ref_type == 'tag' && github.ref_name || 'master' }}
+          keep_files: true

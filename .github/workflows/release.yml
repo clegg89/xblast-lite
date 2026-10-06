@@ -26,7 +26,7 @@ jobs:
     - name: Create Release
       run: |
         tag="$GITHUB_REF_NAME"
-        uploads="outputs/xblast-lite.schematic.pdf outputs/xblast-lite.bom.csv outputs/xblast-lite.gerbers.zip"
+        uploads="outputs/xblast-lite.schematic.pdf outputs/xblast-lite.bom.csv outputs/xblast-lite.ibom.html outputs/xblast-lite.gerbers.zip"
         if gh release view "$tag" -R "$GITHUB_REPOSITORY" >/dev/null 2>&1; then
           gh release upload "$tag" -R "$GITHUB_REPOSITORY" $uploads
         else
@@ -34,5 +34,6 @@ jobs:
           gh release create "$tag" -R "$GITHUB_REPOSITORY" \
             --draft \
             --title "$title" \
+            --notes "[Interactive BOM](https://clegg89.github.io/xblast-lite/$tag)" \
             $uploads
         fi
