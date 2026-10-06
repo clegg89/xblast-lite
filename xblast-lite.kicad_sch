@@ -7,7 +7,7 @@
 	(title_block
 		(title "Xblast Lite")
 		(date "2026-09-17")
-		(rev "A")
+		(rev "1")
 		(company "Clegg")
 	)
 	(lib_symbols
